@@ -3,8 +3,6 @@
     "target": "ES2022",
     "module": "commonjs",
     "lib": ["ES2022"],
-    "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -20,8 +18,16 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "composite": true,
+    "incremental": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/config" },
+    { "path": "./packages/integrations" },
+    { "path": "./packages/ai" },
+    { "path": "./apps/api" }
+  ]
 }

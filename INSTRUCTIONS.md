@@ -60,21 +60,43 @@ AI receptionist for Akaroa Holiday Homes handling pre-arrival communications and
 - Type-safe field mapping between TypeScript types and Airtable fields
 - Comprehensive error handling and health checks
 
-### 🚧 In Progress Features
-
 #### 4. OpenAI Integration (Step 4)
-- **Location**: `packages/ai/` (to be created)
-- **Status**: 🔄 Next
+- **Location**: `packages/ai/`
+- **Status**: ✅ Complete
 - **Description**: OpenAI client with function calling and safety guardrails
+- **Key Files**:
+  - `packages/ai/src/client/openai.ts` - Main OpenAI client with function calling
+  - `packages/ai/src/service.ts` - AIReceptionistService for email handling
+  - `packages/ai/src/guardrails/safety.ts` - Multi-layered safety system
+  - `packages/ai/src/tools/` - Function calling tool definitions
 
-#### 5. Gmail Integration (Step 5)
-- **Location**: `packages/integrations/` (to be created)
-- **Status**: ⏳ Pending
-- **Description**: Gmail API client for inbound email processing
+**Key Features**:
+- GPT-4 Turbo integration with function calling
+- Comprehensive safety guardrails with risk escalation (low → medium → high)
+- Draft-first approval workflow for all responses
+- Identity verification tools and booking context retrieval
+- Emergency detection and escalation triggers
+- Confidence scoring and approval queue integration
+
+#### 5. API Server (Step 5)
+- **Location**: `apps/api/`
+- **Status**: ✅ Complete
+- **Description**: Production-ready Express.js API server
+- **Key Files**:
+  - `apps/api/src/server.ts` - Main server implementation
+  - `apps/api/src/routes/` - API route handlers (email, approval, health)
+  - `apps/api/src/middleware/` - Auth, validation, error handling
+
+**Key Features**:
+- Email processing endpoints with AI integration
+- Approval management system (list, approve, reject)
+- Authentication via API key with rate limiting
+- Request validation using Zod schemas
+- Health checks and comprehensive error handling
 
 ### 📋 Planned Features
 
-- API Server (`apps/api/`)
+- Gmail Integration (`packages/integrations/gmail/`)
 - Worker Service (`apps/worker/`)
 - Email Outbound Integration
 - Testing & Safety Validation
@@ -114,11 +136,11 @@ npm run build --workspaces
 ├── packages/                  # Shared packages
 │   ├── core/                 # Domain types and utilities
 │   ├── config/               # Configuration management
-│   └── integrations/         # External service integrations (Airtable)
-├── apps/                     # Applications (future)
-│   ├── api/                 # API server (planned)
+│   ├── integrations/         # External service integrations (Airtable)
+│   └── ai/                  # OpenAI integration and AI service
+├── apps/                     # Applications
+│   ├── api/                 # Express.js API server
 │   └── worker/              # Background jobs (planned)
-└── tests/                   # Test files (future)
 ```
 
 ## Environment Setup
@@ -183,18 +205,25 @@ const verification = await airtable.verifyIdentity('booking123', {
 npm install
 
 # Build all packages
-npm run build --workspaces
-
-# Build specific package
-npm run build --workspace=@ahh-ai/core
-npm run build --workspace=@ahh-ai/config
-npm run build --workspace=@ahh-ai/integrations
+npm run build
 
 # Type checking
-npm run typecheck --workspaces
+npm run typecheck
 
-# Development mode (auto-rebuild)
-npm run dev --workspace=@ahh-ai/core
+# Clean build artifacts
+npm run clean
+
+# API Server commands
+npm run api:dev      # Start API server in development mode
+npm run api:build    # Build API server
+npm run api:start    # Start built API server
+
+# Individual package builds
+cd packages/core && npm run build
+cd packages/config && npm run build  
+cd packages/integrations && npm run build
+cd packages/ai && npm run build
+cd apps/api && npm run build
 ```
 
 ## Configuration Details
@@ -233,13 +262,12 @@ git pull origin main
 
 ## Next Steps
 
-1. **Airtable Integration** - Create typed client for data operations
-2. **OpenAI Integration** - Implement AI tools and response generation  
-3. **Gmail Integration** - Set up email polling and processing
-4. **API Server** - Create endpoints for webhooks and approvals
-5. **Worker Service** - Background job processing
-6. **Testing** - Comprehensive test suite
-7. **Deployment** - Production setup and monitoring
+1. **Gmail Integration** - Set up email polling and processing
+2. **Worker Service** - Background job processing
+3. **Testing** - Comprehensive test suite
+4. **Email Outbound Integration** - Resend/AWS SES for sending emails
+5. **Observability** - Logging, monitoring, and metrics
+6. **Deployment** - Production setup and CI/CD
 
 ## Key Design Principles
 
