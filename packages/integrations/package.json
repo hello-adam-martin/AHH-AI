@@ -1,0 +1,20 @@
+{
+  "name": "@ahh-ai/integrations",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "airtable": "^0.12.2",
+    "zod": "^3.22.4",
+    "@ahh-ai/core": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "typescript": "^5.9.2"
+  }
+}
