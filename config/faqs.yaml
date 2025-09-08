@@ -1,0 +1,47 @@
+defaults:
+  wifi: "Wi-Fi details are in the welcome booklet on the kitchen bench. If you can't find it, reply 'WIFI' and I'll help after confirming your booking details."
+  
+  checkin: "Check-in is from 3:00 PM. You'll receive detailed arrival instructions including access codes after I verify your identity. Please confirm your full name and arrival date to proceed."
+  
+  checkout: "Check-out is by 10:00 AM. Please leave keys inside and lock the door behind you. Strip beds and place towels in the laundry basket. Take any rubbish to the bins outside."
+  
+  rubbish: "General rubbish goes in the red bin, recycling in the yellow bin. Bins are collected Monday morning - please put them out Sunday evening if your stay includes Monday."
+  
+  heating: "Heat pump remote is on the coffee table. Set to 'Heat' mode, fan on 'Auto', temperature to 22°C. Close doors and windows for fastest warming. If it's not working, check the power switch on the unit."
+  
+  tv: "TV uses HDMI 1 for the streaming device (Netflix, YouTube etc). If no picture, press 'Source' on the TV remote and select HDMI 1. To restart, hold the power button for 5 seconds."
+  
+  directions: "Your arrival guide includes detailed directions and parking information. Need me to resend it? I can share the basics after confirming your booking details."
+  
+  parking: "Most properties have dedicated parking spaces. Check your arrival guide for specific instructions. Street parking may have time limits - check local signs."
+  
+  amenities: "Each property has a welcome booklet listing all amenities, appliances, and local recommendations. Look for it on the kitchen bench or coffee table."
+  
+  emergency: "For genuine emergencies (medical, fire, gas leak), call 111 immediately. For urgent property issues after hours, use the emergency contact number in your arrival guide."
+  
+  pets: "Pets are welcome at pet-friendly properties with prior approval. Additional cleaning fees apply. Please keep pets off furniture and clean up after them."
+  
+  smoking: "All our properties are completely smoke-free, including e-cigarettes and vaping. Smoking is permitted outside only. Violations incur additional cleaning fees."
+  
+  noise: "Please respect our neighbours with quiet hours from 10:00 PM to 7:00 AM. No parties or loud music. Akaroa is a peaceful community - help us keep it that way!"
+  
+  cleaning: "Basic cleaning supplies are provided under the kitchen sink. Please clean up spills and wash dishes. No need for deep cleaning - that's included in your stay."
+  
+  laundry: "Washing machine and dryer instructions are in the laundry or welcome booklet. Detergent is provided. Please clean the lint filter after using the dryer."
+
+# Property-specific overrides
+per_property_overrides:
+  "driftwood_villa":
+    wifi: "SSID: Driftwood_5G — Password: SEA-BREEZE-2024"
+    parking: "Driveway fits 2 cars maximum. Please don't block the neighbour's driveway access on the left side."
+    heating: "Villa has underfloor heating in bathrooms (switch by door) plus heat pumps in living areas. Underfloor heating takes 30+ minutes to warm up."
+    
+  "harbour_view_cottage":
+    wifi: "SSID: HarbourView — Password: AKAROA-HARBOUR-2024"
+    parking: "Single parking space in driveway. Additional cars can park on Rue Lavaud (2-hour limit during day, no limit after 6pm)."
+    tv: "Smart TV with Netflix and Freeview built-in. Use the 'Netflix' button on remote. If slow, restart the TV by unplugging for 10 seconds."
+    
+  "french_quarter_apartment":
+    wifi: "Building WiFi - details in welcome folder by the door"
+    parking: "No dedicated parking. Best options: Rue Balguerie (free 2-hour, no limit after 6pm) or public car park behind L'Hotel (paid)."
+    checkin: "Apartment entry is via the main building entrance on Rue Lavaud. Press buzzer #4 and come up to first floor."

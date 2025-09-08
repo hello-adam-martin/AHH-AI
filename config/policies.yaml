@@ -1,0 +1,56 @@
+identity_verification:
+  required_for: 
+    - "access_instructions_secure"
+    - "lockbox_code"
+    - "door_code"
+    - "wifi_password"
+  steps:
+    - "Confirm full name + email match the booking record"
+    - "Confirm arrival date + property name"
+    - "If mismatch → escalate"
+
+red_lines:
+  - "Never share lockbox codes without verification"
+  - "Never offer discounts or refunds"
+  - "Do not confirm availability; direct to booking link"
+  - "Never provide sensitive access information without identity verification"
+  - "Do not handle emergency situations; escalate immediately"
+
+escalation:
+  triggers:
+    - "Angry sentiment or 2+ negative cues"
+    - "Refunds, discounts, policy override requests"
+    - "Emergency keywords: 'locked out', 'gas', 'fire', 'water leak', 'medical'"
+    - "Identity verification failed 3+ times"
+    - "Confidence score below 0.75"
+    - "First-time guest contact (if enabled)"
+  
+  emergency_keywords:
+    - "locked out"
+    - "gas"
+    - "fire"
+    - "water leak"
+    - "medical"
+    - "emergency"
+    - "injured"
+    - "hospital"
+    - "police"
+
+defaults:
+  checkin_time: "3:00 PM"
+  checkout_time: "10:00 AM"
+  max_guests_default: 4
+  pet_policy: "Pets welcome with prior approval and additional cleaning fee"
+  smoking_policy: "No smoking inside properties"
+  party_policy: "No parties or events without prior approval"
+
+confidence_thresholds:
+  auto_reply: 0.95
+  approval_required: 0.75
+  escalate_immediately: 0.5
+
+approval_settings:
+  draft_mode_default: true
+  require_approval_first_contact: true
+  max_auto_replies_per_hour: 10
+  approval_timeout_hours: 24
