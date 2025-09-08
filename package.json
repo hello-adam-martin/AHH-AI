@@ -1,0 +1,27 @@
+{
+  "name": "ahh-ai",
+  "version": "1.0.0",
+  "description": "AI receptionist/guest agent for handling **pre-arrival comms + FAQs** with guardrails and an approval queue.   Built around **OpenAI**, **Airtable**, **Gmail** (inbound), and **Email/SMS** (outbound). Designed to expand later into cleaning ops, owner comms, and concierge upsells.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "nodemon": "^3.1.10",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}
